@@ -37,34 +37,27 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             if let error = error {
                 print("L'utilisateur n'a pas autorisé: \(error)")
             } else {
-                let content = UNMutableNotificationContent()
-                content.title = "Mon titre de notification"
-                content.sound = UNNotificationSound.default()
-                
-                // self.userNotificationManager.removeAllPendingNotificationRequests()
-                
+                self.userNotificationManager.removeAllDeliveredNotifications()
+                self.userNotificationManager.removeAllPendingNotificationRequests()
                 for mapPoint in FunMapPoint.allMapPoints {
-                    let region = CLCircularRegion(center: mapPoint.coordinate, radius: 500000, identifier: mapPoint.title)
-                    region.notifyOnEntry = true
-                    region.notifyOnExit = false
-                    let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
-                    let request = UNNotificationRequest(identifier: "MapsTutorialNotification", content: content, trigger: trigger)
-                    self.userNotificationManager.add(request) { (error) in
-                        if let error = error {
-                            print("Erreur add request: \(error)")
-                        }
-                    }
+                    self.configureNofitication(mapPoint: mapPoint)
                 }
-                let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 48.8904296, longitude: 2.290016), radius: 500000, identifier: "Levallois")
-                region.notifyOnEntry = true
-                region.notifyOnExit = false
-                let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
-                let request = UNNotificationRequest(identifier: "MapsTutorialNotification", content: content, trigger: trigger)
-                self.userNotificationManager.add(request) { (error) in
-                    if let error = error {
-                        print("Erreur add request: \(error)")
-                    }
-                }
+            }
+        }
+    }
+    
+    func configureNofitication(mapPoint: FunMapPoint) {
+        let content = UNMutableNotificationContent()
+        content.title = mapPoint.title
+        content.sound = UNNotificationSound.default()
+        let region = CLCircularRegion(center: mapPoint.coordinate, radius: 500000, identifier: mapPoint.title)
+        region.notifyOnEntry = true
+        region.notifyOnExit = false
+        let trigger = UNLocationNotificationTrigger(region: region, repeats: true)
+        let request = UNNotificationRequest(identifier: mapPoint.title, content: content, trigger: trigger)
+        self.userNotificationManager.add(request) { (error) in
+            if let error = error {
+                print("Erreur add request: \(error)")
             }
         }
     }

@@ -28,6 +28,9 @@
 		7E166BBA2064F0A9002084AB /* AmazingPlaces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AmazingPlaces.plist; sourceTree = "<group>"; };
 		7E166BBB2064F0AA002084AB /* FunMapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunMapPoint.swift; sourceTree = "<group>"; };
 		7E166BBE2064F0DC002084AB /* FunAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunAnnotation.swift; sourceTree = "<group>"; };
+		7E166BE320654D73002084AB /* Batman.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Batman.gpx; sourceTree = "<group>"; };
+		7E166BE520655273002084AB /* Guitar.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Guitar.gpx; sourceTree = "<group>"; };
+		7E166BE7206553A3002084AB /* Lion.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Lion.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 		7E166BA72064EFDB002084AB /* MapsTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				7E166BE82065540C002084AB /* GPX */,
 				7E166BBA2064F0A9002084AB /* AmazingPlaces.plist */,
 				7E166BBB2064F0AA002084AB /* FunMapPoint.swift */,
 				7E166BA82064EFDB002084AB /* AppDelegate.swift */,
@@ -71,6 +75,16 @@
 				7E166BBE2064F0DC002084AB /* FunAnnotation.swift */,
 			);
 			path = MapsTutorial;
+			sourceTree = "<group>";
+		};
+		7E166BE82065540C002084AB /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				7E166BE320654D73002084AB /* Batman.gpx */,
+				7E166BE520655273002084AB /* Guitar.gpx */,
+				7E166BE7206553A3002084AB /* Lion.gpx */,
+			);
+			path = GPX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
